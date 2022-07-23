@@ -1,0 +1,25 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "command line employee tracker connected to sql databases",
+  "main": "server.js",
+  "scripts": {
+    "test": "Jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russelldnn/employee-tracker.git"
+  },
+  "keywords": [
+    "employee",
+    "tracker",
+    "bootcamp"
+  ],
+  "author": "Russell Dunn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russelldnn/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/russelldnn/employee-tracker#readme"
+}
