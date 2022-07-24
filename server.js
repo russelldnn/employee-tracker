@@ -50,10 +50,26 @@ const startCall = () => {
 }
 
 const viewDepart = () => {
-    connection.query("select * from department", (err, data) => {
+    connection.query("select department.id, department.name from department", (err, data) => {
         if (err) throw err;
         console.table(data);
         startCall();
     });
 
+};
+
+const viewRole = () => {
+    connection.query("select role.id, role.title, role.salary, department.name from role join department on role.department_id = department.id", (err, data) => {
+        if (err) throw err;
+        console.table(data);
+        startCall();
+    });
+};
+
+const viewEmployee = () => {
+    connection.query("select employee.id, employee.first_name, employee.last_name, role.title, role.salary, employee.manager_id from employee join role where employee.role_id = role.id", (err, data) => {
+        if (err) throw err;
+        console.table(data);
+        startCall();
+    });
 };
