@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const cTable = require('console.table');
+const PORT = process.env.PORT || 3001;
 
 
 const connection = mysql.createConnection({
@@ -9,16 +10,16 @@ const connection = mysql.createConnection({
     password: 'mypass',
     database: 'boring_business_db'
 });
-
-connection.connect = () => {
+//arrow functions apparently dont work for connections || starts the connection
+connection.connect(function (err) {
     startCall();
-};
+});
 
 const startCall = () => {
     inquirer.prompt([
         {
             type: 'list',
-            name: 'pathTaken'
+            name: 'pathTaken',
             message: 'Select an option to continue',
             choices: [
                'view departments',
@@ -29,8 +30,6 @@ const startCall = () => {
                'add an employee',
                'update an employee role',
                'exit'
-
-
             ]
         }
     ])
@@ -49,3 +48,12 @@ const startCall = () => {
 })
 
 }
+
+const viewDepart = () => {
+    connection.query("select * from department", (err, data) => {
+        if (err) throw err;
+        console.table(data);
+        startCall();
+    });
+
+};
