@@ -12,13 +12,13 @@ const connection = mysql.createConnection({
 
 connection.connect = () => {
     startCall();
-}
+};
 
-startCall = () => {
+const startCall = () => {
     inquirer.prompt([
         {
             type: 'list',
-            name: 'baseLayer'
+            name: 'pathTaken'
             message: 'Select an option to continue',
             choices: [
                'view departments',
@@ -35,6 +35,17 @@ startCall = () => {
         }
     ])
 
+.then((userChoice) => {
+    const {pathTaken} = userChoice;
 
+    if (pathTaken === 'view departments') {viewDepart();}
+    if (pathTaken === 'view all roles') {viewRole();}
+    if (pathTaken === 'view all employees') {viewEmployee();}
+    if (pathTaken === 'add a department') {addDepart();}
+    if (pathTaken === 'add a role') {addRole();}
+    if (pathTaken === 'add an employee') {addEmployee();}
+    if (pathTaken === 'update an employee role') {updateRole();}
+    if (pathTaken === 'exit') {connection.end(), console.log('Thank you for accessing')};
+})
 
 }
