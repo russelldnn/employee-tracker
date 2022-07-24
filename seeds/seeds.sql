@@ -1,4 +1,4 @@
-
+-- Seed data to fill the database
 insert into department (name)
 values
 ("design"),
