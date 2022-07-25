@@ -1,6 +1,6 @@
 
   
-  # employee tracker
+  # Employee tracker
 
   ![badge](https://img.shields.io/badge/license-AAL-important)
 
@@ -44,7 +44,7 @@
   ![2](https://user-images.githubusercontent.com/104922988/180673684-430412d3-80f2-43a1-bf3f-925dc4c5d364.PNG)
   ![3](https://user-images.githubusercontent.com/104922988/180673691-0ee44c82-0b95-47d8-bc17-fd1298d23ea4.PNG)
   
-  #Video Demo
+  # Video demo
 
 
 
