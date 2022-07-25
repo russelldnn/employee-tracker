@@ -1,9 +1,10 @@
+//requirements needed for inquirer and mysql2, port for saftey and consoletable documentation said to add it
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const cTable = require('console.table');
 const PORT = process.env.PORT || 3001;
 
-
+//creates the connection using my mysql information and database name
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -14,7 +15,7 @@ const connection = mysql.createConnection({
 connection.connect(function (err) {
     startCall();
 });
-
+//the base layer prompt which branches off
 const startCall = () => {
     inquirer.prompt([
         {
@@ -36,7 +37,7 @@ const startCall = () => {
 
 .then((userChoice) => {
     const {pathTaken} = userChoice;
-
+    //if statement tree to direct functions
     if (pathTaken === 'view departments') {viewDepart();}
     if (pathTaken === 'view all roles') {viewRole();}
     if (pathTaken === 'view all employees') {viewEmployee();}
@@ -48,7 +49,7 @@ const startCall = () => {
 })
 
 }
-
+//all the functions that view, add and update accordingly
 const viewDepart = () => {
     connection.query("select department.id, department.name from department", (err, data) => {
         if (err) throw err;
