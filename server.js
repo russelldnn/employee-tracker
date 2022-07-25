@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'mypass',
-    database: 'boring_business_db'
+    database: 'business_db'
 });
 //arrow functions apparently dont work for connections || starts the connection
 connection.connect(function (err) {
