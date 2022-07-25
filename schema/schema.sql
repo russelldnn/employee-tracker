@@ -23,9 +23,9 @@ create table employee (
     last_name varchar(30),
     role_id int,
     manager_id int,
-    department_id int,
+    -- department_id int,
     foreign key(role_id) references role(id),
     foreign key(manager_id) references employee(id),
-    foreign key(department_id) references department(id)
+    -- foreign key(department_id) references department(id)
 );
 
